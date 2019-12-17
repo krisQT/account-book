@@ -18,9 +18,9 @@ const routes = [
     component: __IS_BROWSER
       ? _dvaDynamic({
           component: () =>
-            import(/* webpackChunkName: "layouts__index" */ '../../layouts/index'),
+            import(/* webpackChunkName: "layouts__basicLayout" */ '../../layouts/basicLayout'),
         })
-      : require('../../layouts/index').default,
+      : require('../../layouts/basicLayout').default,
     routes: [
       {
         path: '/',

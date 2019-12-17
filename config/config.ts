@@ -52,7 +52,7 @@ const config: IConfig =  {
   routes: [
     {
       path: '/',
-      component: '../layouts/index',
+      component: '../layouts/basicLayout',
       routes: [
         { path: '/', component: '../pages/index' }
       ]
