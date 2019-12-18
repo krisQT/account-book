@@ -14,6 +14,41 @@ const Router = routerRedux.ConnectedRouter;
 
 const routes = [
   {
+    path: '/user',
+    component: __IS_BROWSER
+      ? _dvaDynamic({
+          component: () =>
+            import(/* webpackChunkName: "layouts__loginLayout" */ '../../layouts/loginLayout'),
+        })
+      : require('../../layouts/loginLayout').default,
+    routes: [
+      {
+        path: '/user/login',
+        component: __IS_BROWSER
+          ? _dvaDynamic({
+              component: () =>
+                import(/* webpackChunkName: "p__login" */ '../login'),
+            })
+          : require('../login').default,
+        exact: true,
+        _title: 'account-book',
+        _title_default: 'account-book',
+      },
+      {
+        component: () =>
+          React.createElement(
+            require('D:/account-book/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+              .default,
+            { pagesPath: 'src/pages', hasRoutesInConfig: true },
+          ),
+        _title: 'account-book',
+        _title_default: 'account-book',
+      },
+    ],
+    _title: 'account-book',
+    _title_default: 'account-book',
+  },
+  {
     path: '/',
     component: __IS_BROWSER
       ? _dvaDynamic({

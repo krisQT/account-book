@@ -1,6 +1,7 @@
 import { IConfig } from 'umi-types';
 import path from 'path';
 import slash from 'slash2';
+import themeSettings from './themeSettings';
 
 // ref: https://umijs.org/config/
 const config: IConfig =  {
@@ -13,6 +14,10 @@ const config: IConfig =  {
     ios: 7,
     chrome: 58,
     ie: 9,
+  },
+  theme: {
+    'brand-primary': themeSettings.primaryColor,
+    'brand-primary-tap': themeSettings.brandPrimaryTap
   },
   treeShaking: true,
   lessLoaderOptions: {
@@ -50,6 +55,13 @@ const config: IConfig =  {
     },
   },
   routes: [
+    {
+      path: '/user',
+      component: '../layouts/loginLayout',
+      routes: [
+        { path: '/user/login', component: '../pages/login' }
+      ]
+    },
     {
       path: '/',
       component: '../layouts/basicLayout',
